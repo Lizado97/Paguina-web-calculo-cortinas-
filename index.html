@@ -539,7 +539,8 @@
             "cortina_fruncida": {100:43.25, 150:55.28, 200:67.29, 250:79.31, 300:91.33, 350:103.34},
             "cortina_plana": {100:31.24, 150:43.25, 200:55.28, 250:60.08, 300:66.09, 350:78.11},
             "cortina_ollados": {100:31.24, 150:43.25, 200:55.28, 250:60.08, 300:66.09, 350:78.11},
-            "cortina_triple_pliegue": {100:56.23, 150:71.86, 200:87.48, 250:103.11, 300:118.72, 350:134.34}
+            "cortina_triple_pliegue": {100:56.23, 150:71.86, 200:87.48, 250:103.11, 300:118.72, 350:134.34},
+            "cortina_palas": {100:43.25, 150:55.28, 200:67.29, 250:79.31, 300:91.33, 350:103.34}
         };
 
         const TIPOS_NOMBRE = {
@@ -549,7 +550,8 @@
             "cortina_fruncida": "Cortina Fruncida",
             "cortina_plana": "Cortina Plana",
             "cortina_ollados": "Cortina con Ollados",
-            "cortina_triple_pliegue": "Cortina Triple Pliegue"
+            "cortina_triple_pliegue": "Cortina Triple Pliegue",
+            "cortina_palas": "Cortina Palas"
         };
 
         // Estado de la aplicación
@@ -619,7 +621,7 @@
             
             if (tipo === 'estor_paquetto' || tipo === 'estor_plegable') {
                 tejidoMetros = (ancho + 40) / 100;
-            } else if (tipo === 'cortina_onda_perfecta' || tipo === 'cortina_fruncida' || tipo === 'cortina_triple_pliegue') {
+            } else if (tipo === 'cortina_onda_perfecta' ) {
                 multiplicador = 2.4;
                 tejidoMetros = (ancho * multiplicador) / 100;
             } else if (tipo === 'cortina_ollados') {
@@ -627,6 +629,18 @@
                 tejidoMetros = (ancho * multiplicador) / 100;
             } else if (tipo === 'cortina_plana') {
                 tejidoMetros = (ancho * 1.4) / 100;
+            }
+            else if ( tipo === 'cortina_fruncida' ) {
+                multiplicador = 2.6;
+                tejidoMetros = (ancho * multiplicador) / 100;
+            }
+            else if ( tipo === 'cortina_triple_pliegue') {
+                multiplicador = 2.7;
+                tejidoMetros = (ancho * multiplicador) / 100;
+            }
+             else if ( tipo === 'cortina_palas' ) {
+                multiplicador = 2.6;
+                tejidoMetros = (ancho * multiplicador) / 100;
             }
 
             const precioTejido = tejidoMetros * tejido.precio;
